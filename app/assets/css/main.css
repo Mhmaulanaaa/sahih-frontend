@@ -1,0 +1,107 @@
+@import "tailwindcss";
+
+/* =========================================
+   GTRANSLATE - SMALL & ELEGANT
+========================================= */
+
+.gtranslate_wrapper {
+    z-index: 9999 !important;
+}
+
+/* Main button */
+.gtranslate_wrapper .gt_float_switcher {
+    background: rgba(255, 255, 255, 0.95) !important;
+    border: 1px solid #dcefe8 !important;
+    border-radius: 10px !important;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.06) !important;
+    overflow: hidden;
+    transition: all 0.2s ease !important;
+    -webkit-border-radius: 10px !important;
+    -moz-border-radius: 10px !important;
+    -ms-border-radius: 10px !important;
+    -o-border-radius: 10px !important;
+}
+
+/* Hover */
+.gtranslate_wrapper .gt_float_switcher:hover {
+    border-color: #b7dfd0 !important;
+    box-shadow: 0 5px 16px rgba(0, 0, 0, 0.08) !important;
+    transform: translateY(-1px);
+    -webkit-transform: translateY(-1px);
+    -moz-transform: translateY(-1px);
+    -ms-transform: translateY(-1px);
+    -o-transform: translateY(-1px);
+}
+
+/* Selected language */
+.gtranslate_wrapper .gt_float_switcher .gt-current-lang {
+    padding: 6px 10px !important;
+
+    font-family: inherit !important;
+    font-size: 11px !important;
+    font-weight: 600 !important;
+
+    color: #166534 !important;
+}
+
+/* Flag */
+.gtranslate_wrapper .gt_float_switcher img {
+    width: 16px !important;
+    height: auto !important;
+
+    margin-right: 5px !important;
+
+    border-radius: 2px !important;
+}
+
+/* Arrow */
+.gtranslate_wrapper .gt_float_switcher .gt-current-lang::after {
+    color: #65a987 !important;
+
+    font-size: 9px !important;
+}
+
+/* Dropdown */
+.gtranslate_wrapper .gt_float_switcher .gt_options {
+    background: #ffffff !important;
+
+    border: 1px solid #e5f2ed !important;
+    border-radius: 12px !important;
+
+    padding: 4px !important;
+
+    margin-bottom: 6px !important;
+
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08) !important;
+}
+
+/* Dropdown item */
+.gtranslate_wrapper .gt_float_switcher .gt_options a {
+    padding: 6px 8px !important;
+
+    border-radius: 7px !important;
+
+    font-size: 11px !important;
+
+    color: #4b5563 !important;
+
+    transition: all 0.15s ease !important;
+}
+
+/* Dropdown hover */
+.gtranslate_wrapper .gt_float_switcher .gt_options a:hover {
+    background: #f0faf6 !important;
+    color: #15803d !important;
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+    .gtranslate_wrapper .gt_float_switcher .gt-current-lang {
+        padding: 5px 8px !important;
+        font-size: 10px !important;
+    }
+
+    .gtranslate_wrapper .gt_float_switcher img {
+        width: 14px !important;
+    }
+}
