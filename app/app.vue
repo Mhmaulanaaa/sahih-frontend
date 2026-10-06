@@ -1,3 +1,4 @@
+x
 <template>
   <NuxtLayout>
     <NuxtPage />
@@ -21,21 +22,6 @@
           ></span>
         </button>
       </Transition>
-      <!-- VOICE -->
-      <!-- <div class="bg-white rounded-lg shadow-md px-3 py-2">
-        <select
-          class="text-sm rounded-md px-2 py-1 focus:outline-none"
-          v-model="voice"
-          @change="changeVoice(voice)"
-        >
-          <option value="off">🔇 Voice OFF</option>
-          <option value="id-ID">🇮🇩 Indonesia</option>
-          <option value="en-US">🇺🇸 English</option>
-        </select>
-      </div> -->
-
-      <!-- TRANSLATE -->
-      <!-- <div class="gtranslate_wrapper px-3 py-6"></div> -->
     </div>
   </NuxtLayout>
 </template>

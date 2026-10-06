@@ -20,19 +20,19 @@ export default defineNuxtConfig({
 
   devtools: { enabled: true },
   runtimeConfig: {
-    public: {
-      apiBase:
-        "https://rsudrsoetomo.jatimprov.go.id/api-rusa/api/",
+    // public: {
+    //   apiBase:
+    //     "https://rsudrsoetomo.jatimprov.go.id/api-rusa/api/",
 
-      apiSecret:
-        import.meta.env.NUXT_PUBLIC_API_SECRET ||
-        "rus4Publ1cApi0421",
-    },
+    //   apiSecret:
+    //     import.meta.env.NUXT_PUBLIC_API_SECRET ||
+    //     "rus4Publ1cApi0421",
+    // },
   },
   app: {
     baseURL: import.meta.env.NUXT_APP_BASE_URL || '/',
     head: {
-      title: 'Webiste',
+      title: 'Sahih',
       titleTemplate: '%s  | RSUD Dr. Soetomo',
 
       link: [

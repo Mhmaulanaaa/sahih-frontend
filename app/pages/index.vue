@@ -1,32 +1,22 @@
 <template>
   <HeroSection />
-  <LogoSection />
-  <TrophySection />
-  <BannerSection />
-  <MenuSection />
-  <ServicesSection />
-  <SoetomoNewsSection />
-  <SeputarJatimSection />
-  <InstagramSection />
-  <PodkiesSection />
-  <InovasiSection />
-  <AgendaSection />
+  <section class="px-4 py-6 sm:px-6 lg:px-8">
+    <div
+      class="mx-auto max-w-9xl overflow-hidden rounded-3xl border border-slate-100 bg-white shadow-[0_20px_60px_rgba(0,0,0,0.08)]"
+    >
+      <ClinicalSection />
+      <ResearchSection />
+      <SearchSection />
+    </div>
+  </section>
 </template>
 
 <script setup lang="ts">
 import HeroSection from "~/components/section/HeroSection.vue";
-import BannerSection from "~/components/section/BannerSection.vue";
-import TrophySection from "~/components/section/TrophySection.vue";
-import MenuSection from "~/components/section/MenuSection.vue";
-import ServicesSection from "~/components/section/ServicesSection.vue";
-import PodkiesSection from "~/components/section/PodkiesSection.vue";
-import InovasiSection from "~/components/section/InovasiSection.vue";
-import AgendaSection from "~/components/section/AgendaSection.vue";
-import LogoSection from "~/components/section/LogoSection.vue";
-import SoetomoNewsSection from "~/components/section/SoetomoNewsSection.vue";
-import SeputarJatimSection from "~/components/section/SeputarJatimSection.vue";
-import InstagramSection from "~/components/section/InstagramSection.vue";
+import ClinicalSection from "~/components/section/ClinicalSection.vue";
+import ResearchSection from "~/components/section/ResearchSection.vue";
+import SearchSection from "~/components/section/SearchSection.vue";
 useHead({
-  title: "Beranda",
+  title: "Sahih",
 });
 </script>

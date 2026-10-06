@@ -1,176 +1,252 @@
 <template>
-  <div class="pt-20 pb-6 bg-transparent">
-    <div class="max-w-7xl mx-auto px-4">
-      <!-- Logos -->
-      <div class="mb-6 bg-gray-100 shadow">
-        <div class="px-6 py-10 flex flex-wrap justify-center items-center gap-8">
-          <a
-            v-for="(item, index) in logos"
-            :key="index"
-            :href="item.url"
-            target="_blank"
-            class="transition-transform hover:scale-110"
-          >
-            <img
-              :src="asset(item.img)"
-              :alt="item.alt"
-              class="h-26 w-auto object-contain"
-            />
-          </a>
-        </div>
-      </div>
+  <footer class="bg-white">
+    <div class="mx-auto max-w-9xl px-4 sm:px-6 lg:px-8">
+      <!-- ===================================================== -->
+      <!-- RELATED LINKS -->
+      <!-- ===================================================== -->
+      <section class="py-10 sm:py-12">
+        <div class="rounded-2xl bg-white px-5 py-7 sm:px-8 sm:py-9">
+          <!-- Title -->
+          <div class="mb-7 text-center">
+            <p class="text-xs font-semibold uppercase tracking-[0.18em] text-emerald-600">
+              Tautan Terkait
+            </p>
 
-      <!-- Info -->
-      <div class="text-center mt-6">
-        <h2 class="text-2xl font-bold mb-3">
-          RSUD Dr. Soetomo, Pemerintah Provinsi Jawa Timur
-        </h2>
-
-        <div class="text-gray-700 leading-relaxed max-w-5xl mx-auto">
-          <!-- Alamat -->
-          <div>
-            <b>Alamat :</b>
-            <span class="text-green-600 font-semibold hover:text-yellow-500">
-              Jl. Mayjend. Prof. Dr. Moestopo No. 6-8, Gubeng, Surabaya 60286
-            </span>
+            <h2 class="mt-2 text-xl font-bold tracking-tight text-slate-800 sm:text-2xl">
+              Portal & Layanan
+            </h2>
           </div>
 
-          <!-- Telepon -->
-          <div class="flex items-center justify-center flex-wrap gap-x-1">
-            <b>Telepon :</b>
-            <span class="text-green-600 font-semibold hover:text-yellow-500">
-              +62 31 1500995
-            </span>
-            <span class="text-gray-700"> (Senin - Sabtu 07.00 - 18.00) </span>
-          </div>
-
-          <!-- WhatsApp -->
-          <div class="flex items-center justify-center flex-wrap gap-x-1">
-            <b>WhatsApp :</b>
+          <!-- Logos -->
+          <div class="flex flex-wrap items-center justify-center gap-x-5 gap-y-4">
             <a
-              href="https://wa.me/6281216700101"
+              v-for="(item, index) in logos"
+              :key="index"
+              :href="item.url"
               target="_blank"
               rel="noopener noreferrer"
-              class="text-green-600 font-semibold hover:text-yellow-500"
+              class="group block"
             >
-              +62 812 1670 0101
+              <img
+                :src="asset(item.img)"
+                :alt="item.alt"
+                class="h-auto w-[180px] rounded-lg object-contain transition-all duration-300 group-hover:-translate-y-1 group-hover:scale-[1.02] group-hover:shadow-md sm:w-[200px] lg:w-[225px]"
+              />
             </a>
-            <span class="text-gray-700"> (Hanya Menerima Pesan Pengaduan) </span>
-          </div>
-
-          <!-- Email -->
-          <div>
-            <b>Email :</b>
-            <span class="text-green-600 font-semibold hover:text-yellow-500">
-              kontak.rsudrsoetomo@jatimprov.go.id
-            </span>
           </div>
         </div>
+      </section>
 
-        <!-- Social -->
-        <div class="flex justify-center gap-3 py-4">
-          <a
-            v-for="social in socials"
-            :key="social.url"
-            :href="social.url"
-            target="_blank"
-            rel="noopener noreferrer"
-            :class="social.class"
+      <!-- ===================================================== -->
+      <!-- MAIN FOOTER -->
+      <!-- ===================================================== -->
+      <section class="border-t border-slate-100 py-10 sm:py-12">
+        <div class="grid gap-8 lg:grid-cols-[1.5fr_1fr_1fr]">
+          <!-- Brand -->
+          <div class="text-center lg:text-left">
+            <div class="flex items-center justify-center gap-3 lg:justify-start">
+              <div
+                class="flex h-11 w-11 items-center justify-center rounded-xl bg-emerald-50 text-emerald-600"
+              >
+                <i class="bi bi-hospital text-xl"></i>
+              </div>
+
+              <div>
+                <h2 class="text-lg font-bold text-slate-800">RSUD Dr. Soetomo</h2>
+
+                <p class="text-xs text-slate-500">Pemerintah Provinsi Jawa Timur</p>
+              </div>
+            </div>
+
+            <p class="mx-auto mt-4 max-w-md text-sm leading-6 text-slate-500 lg:mx-0">
+              Rumah sakit pendidikan dengan layanan kesehatan rujukan tersier nasional
+              yang berkomitmen memberikan pelayanan terbaik bagi masyarakat.
+            </p>
+          </div>
+
+          <!-- Contact -->
+          <div class="text-center lg:text-left">
+            <h3 class="text-sm font-bold text-slate-800">Hubungi Kami</h3>
+
+            <div class="mt-4 space-y-3 text-sm">
+              <!-- Phone -->
+              <a
+                href="tel:+62315501078"
+                class="group flex items-center justify-center text-slate-500 transition-colors hover:text-emerald-600 lg:justify-start"
+              >
+                <i
+                  class="bi bi-telephone mr-2 text-emerald-600 transition-transform group-hover:scale-110"
+                ></i>
+                <span>+62 31 5501078</span>
+              </a>
+
+              <!-- Emergency -->
+              <a
+                href="tel:118"
+                class="group flex items-center justify-center text-slate-500 transition-colors hover:text-red-600 lg:justify-start"
+              >
+                <i
+                  class="bi bi-telephone-outbound mr-2 text-red-500 transition-transform group-hover:scale-110"
+                ></i>
+                <span>118 — Layanan Darurat</span>
+              </a>
+
+              <!-- WhatsApp -->
+              <a
+                href="https://wa.me/6281216700101"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="group flex items-center justify-center text-slate-500 transition-colors hover:text-emerald-600 lg:justify-start"
+              >
+                <i
+                  class="bi bi-whatsapp mr-2 text-emerald-600 transition-transform group-hover:scale-110"
+                ></i>
+                <span>+62 812 1670 0101</span>
+              </a>
+
+              <!-- Email -->
+              <a
+                href="mailto:kontak.rsudrsoetomo@jatimprov.go.id"
+                class="group flex items-center justify-center break-all text-slate-500 transition-colors hover:text-emerald-600 lg:justify-start"
+              >
+                <i class="bi bi-envelope mr-2 shrink-0 text-emerald-600"></i>
+                <span>kontak.rsudrsoetomo@jatimprov.go.id</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Address & Social -->
+          <div class="text-center lg:text-left">
+            <h3 class="text-sm font-bold text-slate-800">Lokasi</h3>
+
+            <p class="mt-4 text-sm leading-6 text-slate-500">
+              Jl. Mayjend. Prof. Dr. Moestopo No. 6-8, Kecamatan Gubeng, Kelurahan
+              Airlangga, Kota Surabaya 60286.
+            </p>
+
+            <!-- Social -->
+            <div class="mt-5 flex justify-center gap-2 lg:justify-start">
+              <a
+                v-for="social in socials"
+                :key="social.url"
+                :href="social.url"
+                target="_blank"
+                rel="noopener noreferrer"
+                :aria-label="social.label"
+                :class="[
+                  'flex h-9 w-9 items-center justify-center rounded-lg text-white shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md',
+                  social.color,
+                ]"
+              >
+                <i :class="social.icon"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================================== -->
+      <!-- BOTTOM -->
+      <!-- ===================================================== -->
+      <section
+        class="flex flex-col gap-3 border-t border-slate-100 py-6 text-center text-xs text-slate-400 sm:flex-row sm:items-center sm:justify-between sm:text-left"
+      >
+        <p>
+          © {{ currentYear }}
+
+          <span class="font-medium text-slate-500">
+            Instalasi Teknologi Komunikasi dan Informasi
+          </span>
+
+          · RSUD Dr. Soetomo
+        </p>
+
+        <nav class="flex flex-wrap justify-center gap-x-4 gap-y-2 sm:justify-end">
+          <NuxtLink
+            to="/kebijakan-privasi"
+            class="transition-colors hover:text-emerald-600"
           >
-            <i :class="social.icon"></i>
-          </a>
-        </div>
-      </div>
+            Kebijakan & Privasi
+          </NuxtLink>
 
-      <!-- Copyright -->
-      <div class="text-center text-sm text-gray-700 mt-4">
-        <strong>© 2026</strong>
-        Instalasi Teknologi Komunikasi dan Informasi, RSUD Dr. Soetomo
-        <span class="mx-2">•</span>
-        <NuxtLink
-          to="/kebijakan-privasi"
-          class="text-green-600 hover:text-yellow-500 font-semibold"
-        >
-          Kebijakan & Privasi
-        </NuxtLink>
+          <NuxtLink to="/faq" class="transition-colors hover:text-emerald-600">
+            FAQ
+          </NuxtLink>
 
-        <span class="mx-2">•</span>
-
-        <NuxtLink to="/faq" class="text-green-600 hover:text-yellow-500 font-semibold">
-          FAQ
-        </NuxtLink>
-
-        <span class="mx-2">•</span>
-
-        <NuxtLink
-          to="/site-map"
-          class="text-green-600 hover:text-yellow-500 font-semibold"
-        >
-          Site Map
-        </NuxtLink>
-      </div>
+          <NuxtLink to="/site-map" class="transition-colors hover:text-emerald-600">
+            Site Map
+          </NuxtLink>
+        </nav>
+      </section>
     </div>
-  </div>
+
+    <!-- Small Accent -->
+    <div class="h-1 bg-emerald-600"></div>
+  </footer>
 </template>
 
 <script setup lang="ts">
 const { asset } = useAsset();
+
+/**
+ * Automatic current year
+ * Akan berubah otomatis setiap tahun.
+ */
+const currentYear = new Date().getFullYear();
+
 const logos = [
   {
     url: "https://jatimprov.go.id/",
-    img: "/images/footer/pemprovjatim2.png",
-    alt: "Pemprov Jatim",
+    img: "/images/footer/linkWebRsds.png",
+    alt: "Company Profile RSUD Dr. Soetomo",
   },
   {
     url: "https://dinkes.jatimprov.go.id/",
-    img: "/images/footer/dinkesjatim.png",
-    alt: "Dinkes Jatim",
+    img: "/images/footer/linkKepk.png",
+    alt: "KEPK",
   },
   {
     url: "https://kominfo.jatimprov.go.id/",
-    img: "/images/footer/diskominfojatim.png",
-    alt: "Diskominfo Jatim",
+    img: "/images/footer/linkEmonev.png",
+    alt: "E-Monev",
   },
   {
     url: "https://ppid.jatimprov.go.id/",
-    img: "/images/footer/ppidjatim.png",
-    alt: "PPID Jatim",
+    img: "/images/footer/linkEhta.png",
+    alt: "E-Hata",
   },
   {
     url: "https://spse.inaproc.id/jatimprov",
-    img: "/images/footer/inaprocspse.png",
-    alt: "INAPROC",
+    img: "/images/footer/linkApsLitbang.png",
+    alt: "Litbang",
   },
-  { url: "https://www.lapor.go.id/", img: "/images/footer/lapor.png", alt: "LAPOR" },
-  { url: "https://sippn.menpan.go.id/", img: "/images/footer/sippn.png", alt: "SIPPN" },
-  { url: "https://kemkes.go.id/", img: "/images/footer/kemenkes.png", alt: "Kemenkes" },
-  { url: "https://komisiinformasi.go.id/", img: "/images/footer/kip.png", alt: "KIP RI" },
 ];
 
 const socials = [
   {
+    label: "Facebook",
     url: "https://www.facebook.com/rsudrsoetomo",
     icon: "bi bi-facebook",
-    class:
-      "w-10 h-10 flex items-center justify-center rounded-lg bg-blue-600 text-white hover:opacity-80",
+    color: "bg-[#1877F2] hover:bg-[#0D65D9]",
   },
   {
+    label: "Twitter",
     url: "https://twitter.com/rsudrsoetomo",
     icon: "fab fa-twitter",
-    class:
-      "w-10 h-10 flex items-center justify-center rounded-lg bg-sky-500 text-white hover:opacity-80",
+    color: "bg-[#1DA1F2] hover:bg-[#0C85D0]",
   },
   {
+    label: "Instagram",
     url: "https://www.instagram.com/rsudrsoetomo/",
     icon: "fab fa-instagram",
-    class:
-      "w-10 h-10 flex items-center justify-center rounded-lg bg-pink-500 text-white hover:opacity-80",
+    color:
+      "bg-gradient-to-tr from-[#F58529] via-[#DD2A7B] to-[#8134AF] hover:from-[#E1306C] hover:via-[#C13584] hover:to-[#833AB4]",
   },
   {
+    label: "YouTube",
     url: "https://www.youtube.com/@RSUDDrSOETOMOSurabaya",
     icon: "fab fa-youtube",
-    class:
-      "w-10 h-10 flex items-center justify-center rounded-lg bg-red-600 text-white hover:opacity-80",
+    color: "bg-[#FF0000] hover:bg-[#CC0000]",
   },
 ];
 </script>

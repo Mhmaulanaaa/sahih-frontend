@@ -1,248 +1,83 @@
 <template>
   <header
     :class="[
-      'fixed top-0 left-0 w-full z-50 transition-all duration-300',
-      isHome && !scrolled ? 'bg-transparent' : 'bg-white shadow-md',
+      'fixed top-0 left-0 z-50 w-full transition-all duration-300',
+      isHome && !scrolled ? 'bg-transparent' : 'bg-white/95 shadow-sm backdrop-blur-md',
     ]"
   >
-    <!-- ================= TOP BAR ================= -->
-    <div class="hidden lg:block bg-green-700 text-white text-sm">
-      <div class="max-w-7xl mx-auto h-12 px-6 flex items-center justify-between">
-        <!-- Left -->
-        <div class="flex items-center gap-8">
-          <!-- Telepon -->
-          <a
-            href="tel:031-550-1078"
-            class="flex items-center gap-2 transition hover:text-yellow-200"
-          >
-            <i class="fas fa-phone-alt text-xs"></i>
-            <span>Telepon : +62 31 1500995 (Senin - Sabtu 07.00 - 18.00)</span>
-          </a>
-
-          <!-- WhatsApp -->
-          <a
-            href="https://wa.me/6281216700101"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="flex items-center gap-2 transition hover:text-yellow-200"
-          >
-            <i class="fab fa-whatsapp text-sm"></i>
-            <span>WhatsApp : +62 812 1670 0101 (Hanya Menerima Pesan Pengaduan)</span>
-          </a>
-        </div>
-
-        <!-- Right -->
-        <!-- KANAN -->
-        <div class="flex items-center gap-1">
-          <!-- Voice -->
-          <!-- <div class="relative z-30">
-            <VoiceSwitcher />
-          </div> -->
-
-          <!-- Google Translate -->
-          <!-- <div class="relative z-20">
-            <LanguageSwitcher />
-          </div> -->
-
-          <!-- LanguageVoice -->
-          <div class="relative z-20">
-            <LanguageVoiceSwitcher />
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- Dekstop -->
-
-    <!-- Mobile -->
+    <!-- ================= MOBILE TOP BAR ================= -->
     <div
       :class="[
-        'lg:hidden text-white transition-all duration-300',
-        isHome && !scrolled ? 'bg-black/20 backdrop-blur-md' : 'bg-green-700',
+        'lg:hidden border-b transition-all duration-300',
+        isHome && !scrolled
+          ? 'border-white/10 bg-black/20 text-white backdrop-blur-md'
+          : 'border-slate-100 bg-white text-slate-700',
       ]"
     >
-      <div class="px-4 py-2 flex items-center justify-between">
-        <!-- Nomor -->
-        <div class="flex items-center gap-3 text-xs">
+      <div class="flex items-center justify-between px-4 py-2">
+        <!-- CONTACT -->
+        <div class="flex items-center gap-4 text-[11px] sm:text-xs">
+          <!-- TELEPON -->
           <a
-            href="tel:031-550-1078"
-            class="flex items-center gap-2 transition hover:text-yellow-200"
+            href="tel:+62311500995"
+            class="flex items-center gap-1.5 transition hover:text-emerald-500"
           >
-            <i class="fas fa-phone-alt text-xs"></i>
-            <span>Telepon : +62 31 1500995 (Senin - Sabtu 07.00 - 18.00)</span>
+            <i class="fas fa-phone-alt text-[10px]"></i>
+
+            <span class="hidden sm:inline"> +62 31 1500995 </span>
           </a>
 
-          <!-- WhatsApp -->
+          <!-- WHATSAPP -->
           <a
             href="https://wa.me/6281216700101"
             target="_blank"
             rel="noopener noreferrer"
-            class="flex items-center gap-2 transition hover:text-yellow-200"
+            class="flex items-center gap-1.5 transition hover:text-emerald-500"
           >
-            <i class="fab fa-whatsapp text-sm"></i>
-            <span>WhatsApp : +62 812 1670 0101 (Hanya Menerima Pesan Pengaduan)</span>
+            <i class="fab fa-whatsapp text-xs"></i>
+
+            <span class="hidden sm:inline"> +62 812 1670 0101 </span>
           </a>
         </div>
-
-        <!-- Tombol -->
-        <div class="flex items-center gap-5">
-          <div class="px-2 py-1">
-            <LanguageVoiceSwitcher />
-          </div>
-        </div>
-        <!-- <div class="flex items-center gap-5">
-          <div class="px-2 py-1">
-            <VoiceSwitcher />
-          </div>
-        </div>
-        <div class="flex items-center gap-2">
-          <div class="px-2 py-1">
-            <LanguageSwitcher />
-          </div>
-        </div> -->
       </div>
     </div>
+
+    <!-- ================= MAIN HEADER ================= -->
     <div
-      class="max-w-7xl mx-auto px-4 lg:px-6 h-16 lg:h-20 flex items-center justify-between"
+      class="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:h-[68px] lg:h-20 lg:px-6"
     >
-      <!-- LOGO -->
-      <NuxtLink to="/" class="flex items-center gap-4 z-50">
-        <img src="/images/logo/logo-rsds-jatimprov.png" alt="Logo" class="h-9 lg:h-20" />
-
-        <div class="">
-          <h2
-            :class="[
-              ' text-sm font-bold leading-none transition-colors xl:text-base',
-              isHome && !scrolled ? 'text-white' : 'text-green-700',
-            ]"
-          >
-            RSUD Dr. Soetomo
-          </h2>
-        </div>
-      </NuxtLink>
-
-      <!-- HAMBURGER -->
-      <button
-        class="lg:hidden text-2xl z-50"
-        @click="toggleMobile"
-        aria-label="Toggle Menu"
-      >
-        ☰
-      </button>
-
-      <!-- ================= DESKTOP NAV ================= -->
-      <nav
-        class="hidden lg:flex items-center justify-center gap-5 xl:gap-6 2xl:gap-7 whitespace-nowrap text-sm font-medium"
-      >
-        <NuxtLink to="/" :class="linkClass('/')">Beranda</NuxtLink>
-
-        <!-- DROPDOWN -->
-        <div v-for="menu in dropdownMenus" :key="menu.base" class="relative group">
-          <button :class="dropdownClass(menu.base)">
-            {{ menu.label }}
-            <i class="fas fa-chevron-down text-xs"></i>
-          </button>
-
-          <div
-            class="absolute top-full left-0 mt-3 w-64 bg-white rounded-xl shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 overflow-hidden"
-          >
-            <template v-for="item in menu.items" :key="item.to">
-              <!-- EXTERNAL -->
-              <a
-                v-if="isExternal(item.to)"
-                :href="item.to"
-                target="_blank"
-                rel="noopener noreferrer"
-                :class="dropdownItemClass(item.to)"
-              >
-                {{ item.label }}
-              </a>
-
-              <!-- INTERNAL -->
-              <NuxtLink v-else :to="item.to" :class="dropdownItemClass(item.to)">
-                {{ item.label }}
-              </NuxtLink>
-            </template>
-          </div>
-        </div>
-
-        <NuxtLink to="/laporan" :class="linkClass('/laporan')">Laporan</NuxtLink>
-        <NuxtLink to="/reformasi-birokrasi" :class="linkClass('/reformasi-birokrasi')">
-          Reformasi Birokrasi
-        </NuxtLink>
-        <!-- <NuxtLink to="/csirt" :class="linkClass('/csirt')">CSIRT</NuxtLink> -->
-        <NuxtLink to="/ppid" :class="linkClass('/ppid')">PPID</NuxtLink>
-        <NuxtLink to="/pengaduan" :class="linkClass('/pengaduan')"> Pengaduan </NuxtLink>
-      </nav>
-    </div>
-
-    <!-- ================= MOBILE MENU ================= -->
-    <transition name="fade">
-      <div
-        v-if="mobileOpen"
-        class="lg:hidden fixed inset-0 bg-white z-40 pt-20 overflow-y-auto"
-      >
-        <div class="px-6 pb-6 space-y-2 pt-10">
-          <NuxtLink to="/" @click="closeMobile" class="block py-2 font-medium">
-            Beranda
-          </NuxtLink>
-
-          <!-- ACCORDION -->
-          <div v-for="menu in dropdownMenus" :key="menu.base" class="border-b">
-            <button
-              class="w-full flex justify-between items-center py-3 font-medium"
-              @click="toggleAccordion(menu.base)"
-            >
-              {{ menu.label }}
-              <span class="text-xl">
-                {{ openAccordion === menu.base ? "−" : "+" }}
-              </span>
-            </button>
-
-            <div v-show="openAccordion === menu.base" class="pl-4 pb-3 space-y-1">
-              <template v-for="item in menu.items" :key="item.to">
-                <a
-                  v-if="isExternal(item.to)"
-                  :href="item.to"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  @click="closeMobile"
-                  class="block py-1 text-sm text-gray-700 hover:text-green-500"
-                >
-                  {{ item.label }}
-                </a>
-
-                <NuxtLink
-                  v-else
-                  :to="item.to"
-                  @click="closeMobile"
-                  class="block py-1 text-sm text-gray-700 hover:text-green-500"
-                >
-                  {{ item.label }}
-                </NuxtLink>
-              </template>
-            </div>
-          </div>
-
-          <NuxtLink to="/laporan" @click="closeMobile" class="block py-2">
-            Laporan
-          </NuxtLink>
-          <NuxtLink to="/reformasi-birokrasi" @click="closeMobile" class="block py-2">
-            Reformasi Birokrasi
-          </NuxtLink>
-          <!-- <NuxtLink to="/csirt" @click="closeMobile" class="block py-2"> CSIRT </NuxtLink> -->
-          <NuxtLink to="/ppid" @click="closeMobile" class="block py-2"> PPID </NuxtLink>
-          <NuxtLink to="/pengaduan" @click="closeMobile" class="block py-2">
-            Pengaduan
-          </NuxtLink>
-        </div>
+      <!-- ================= LOGO ================= -->
+      <div class="z-50 flex items-center">
+        <img
+          src="/images/logo/grs.png"
+          alt="RSUD Dr. Soetomo Jawa Timur"
+          class="h-9 w-auto object-contain sm:h-10 lg:h-14"
+        />
       </div>
-    </transition>
-    <!-- ================= GOOGLE TRANSLATE ================= -->
-    <!-- <div
-      class="gtranslate_wrapper fixed -left-[9999px] -top-[9999px]"
-      aria-hidden="true"
-    ></div> -->
-    <!-- ================= END GOOGLE TRANSLATE ================= -->
+
+      <!-- ================= ACTIONS ================= -->
+      <div class="flex items-center gap-2 sm:gap-3">
+        <!-- LANGUAGE SWITCHER -->
+        <div :class="['rounded-xl p-1 transition-all duration-300', isHome && !scrolled]">
+          <LanguageVoiceSwitcher :scrolled="scrolled" />
+        </div>
+
+        <!-- LOGIN -->
+        <NuxtLink
+          to="/login"
+          :class="[
+            'inline-flex items-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold transition-all duration-300 sm:px-5',
+            isHome && !scrolled
+              ? 'bg-white text-emerald-700 shadow-lg hover:bg-emerald-50'
+              : 'bg-emerald-600 text-white shadow-sm hover:bg-emerald-700 hover:shadow-md',
+          ]"
+        >
+          <i class="fas fa-right-to-bracket text-xs sm:text-sm"></i>
+
+          <span class="hidden sm:inline"> Login </span>
+        </NuxtLink>
+      </div>
+    </div>
   </header>
 </template>
 <script setup lang="ts">

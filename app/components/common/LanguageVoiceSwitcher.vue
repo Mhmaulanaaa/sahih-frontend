@@ -3,18 +3,13 @@
     <!-- =====================================================
          MAIN BUTTON
     ====================================================== -->
-
     <button
       type="button"
       aria-label="Pilih bahasa"
-      class="flex h-9 w-9 items-center justify-center rounded-lg border border-white/10 bg-white/10 text-white transition-all duration-200 hover:bg-white/20"
-      :class="{
-        'bg-white/20': isOpen,
-      }"
+      class="flex h-9 w-9 items-center justify-center rounded-lg text-emerald-600 shadow-sm transition-all duration-200 hover:bg-emerald-100 hover:shadow-md"
+      :aria-expanded="isOpen"
       @click.stop="isOpen = !isOpen"
     >
-      <!-- DEFAULT: TRANSLATE ICON -->
-
       <i
         class="fas fa-language text-[17px] transition-transform duration-200"
         :class="{
@@ -26,7 +21,6 @@
     <!-- =====================================================
          DROPDOWN
     ====================================================== -->
-
     <transition
       enter-active-class="transition duration-150 ease-out"
       enter-from-class="opacity-0 translate-y-1 scale-95"
@@ -39,20 +33,14 @@
         v-if="isOpen"
         class="absolute right-0 top-full z-[9999] mt-2 w-56 overflow-hidden rounded-xl border border-gray-100 bg-white shadow-xl"
       >
-        <!-- =================================================
-             HEADER
-        ================================================== -->
-
+        <!-- HEADER -->
         <div class="border-b border-gray-100 px-4 py-3">
           <p class="text-xs font-semibold uppercase tracking-wide text-gray-400">
             Pilih Bahasa
           </p>
         </div>
 
-        <!-- =================================================
-             LANGUAGE OPTIONS
-        ================================================== -->
-
+        <!-- LANGUAGE OPTIONS -->
         <div class="p-1.5">
           <button
             v-for="language in languages"
@@ -67,7 +55,6 @@
             @click.stop="selectLanguage(language)"
           >
             <!-- FLAG -->
-
             <span
               class="flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-gray-50 text-lg"
             >
@@ -75,7 +62,6 @@
             </span>
 
             <!-- LANGUAGE -->
-
             <div class="min-w-0 flex-1">
               <p class="text-sm">
                 {{ language.label }}
@@ -87,7 +73,6 @@
             </div>
 
             <!-- CHECK -->
-
             <i
               v-if="currentLanguage.code === language.code"
               class="fas fa-check shrink-0 text-xs text-emerald-600"
@@ -95,16 +80,10 @@
           </button>
         </div>
 
-        <!-- =================================================
-             DIVIDER
-        ================================================== -->
-
+        <!-- DIVIDER -->
         <div class="mx-3 border-t border-gray-100"></div>
 
-        <!-- =================================================
-             VOICE SECTION
-        ================================================== -->
-
+        <!-- VOICE SECTION -->
         <div class="p-1.5">
           <button
             type="button"
@@ -117,7 +96,6 @@
             @click.stop="toggleVoiceAndClose"
           >
             <!-- ICON -->
-
             <span
               class="flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-gray-50"
             >
@@ -132,7 +110,6 @@
             </span>
 
             <!-- LABEL -->
-
             <div class="min-w-0 flex-1">
               <p class="text-sm">Voice Over</p>
 
@@ -142,7 +119,6 @@
             </div>
 
             <!-- STATUS -->
-
             <span
               class="shrink-0 text-[10px] font-semibold"
               :class="voiceEnabled ? 'text-emerald-600' : 'text-gray-400'"
@@ -170,10 +146,18 @@ import {
 
 /**
  * =====================================================
+ * PROPS
+ * =====================================================
+ */
+defineProps<{
+  scrolled?: boolean;
+}>();
+
+/**
+ * =====================================================
  * LANGUAGE + VOICE
  * =====================================================
  */
-
 const {
   languages,
   currentLanguage,
@@ -188,9 +172,7 @@ const {
  * STATE
  * =====================================================
  */
-
 const isOpen = ref(false);
-
 const containerRef = ref<HTMLElement | null>(null);
 
 /**
@@ -198,12 +180,8 @@ const containerRef = ref<HTMLElement | null>(null);
  * CHANGE LANGUAGE
  * =====================================================
  */
-
-const selectLanguage = (
-  language: LanguageVoice,
-) => {
+const selectLanguage = (language: LanguageVoice) => {
   changeLanguage(language);
-
   isOpen.value = false;
 };
 
@@ -212,10 +190,8 @@ const selectLanguage = (
  * TOGGLE VOICE
  * =====================================================
  */
-
 const toggleVoiceAndClose = () => {
   toggleVoice();
-
   isOpen.value = false;
 };
 
@@ -224,10 +200,7 @@ const toggleVoiceAndClose = () => {
  * CLICK OUTSIDE
  * =====================================================
  */
-
-const handleClickOutside = (
-  event: MouseEvent,
-) => {
+const handleClickOutside = (event: MouseEvent) => {
   const target = event.target as Node;
 
   if (
@@ -243,14 +216,7 @@ const handleClickOutside = (
  * LIFECYCLE
  * =====================================================
  */
-
 onMounted(() => {
-  /**
-   * Initialize:
-   * - detect Google Translate language
-   * - sync voice ON/OFF state
-   * - listen voice-control-change
-   */
   init();
 
   document.addEventListener(
