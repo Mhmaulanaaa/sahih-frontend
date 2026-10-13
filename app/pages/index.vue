@@ -6,7 +6,7 @@
     >
       <ClinicalSection />
       <ResearchSection />
-      <SearchSection />
+      <!-- <SearchSection /> -->
     </div>
   </section>
 </template>
