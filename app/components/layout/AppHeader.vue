@@ -63,8 +63,10 @@
         </div>
 
         <!-- LOGIN -->
-        <NuxtLink
-          to="/login"
+        <a
+          href="http://10.1.1.21/rsds_sahih/login"
+          target="_blank"
+          rel="noopener noreferrer"
           :class="[
             'inline-flex items-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold transition-all duration-300 sm:px-5',
             isHome && !scrolled
@@ -74,8 +76,8 @@
         >
           <i class="fas fa-right-to-bracket text-xs sm:text-sm"></i>
 
-          <span class="hidden sm:inline"> Login </span>
-        </NuxtLink>
+          <span class="hidden sm:inline">Login</span>
+        </a>
       </div>
     </div>
   </header>
